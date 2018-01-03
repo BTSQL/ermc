@@ -1,0 +1,7 @@
+C:\Dev\CSharp\ERWinParser\ERM-C\obj\Release\ResolveAssemblyReference.cache
+C:\Dev\CSharp\ERWinParser\ERM-C\bin\Release\ERM_C.dll.config
+C:\Dev\CSharp\ERWinParser\ERM-C\bin\Release\ERM_C.dll
+C:\Dev\CSharp\ERWinParser\ERM-C\bin\Release\ERM_C.pdb
+C:\Dev\CSharp\ERWinParser\ERM-C\bin\Release\ERM_C.tlb
+C:\Dev\CSharp\ERWinParser\ERM-C\obj\Release\ERM_C.dll
+C:\Dev\CSharp\ERWinParser\ERM-C\obj\Release\ERM_C.pdb
