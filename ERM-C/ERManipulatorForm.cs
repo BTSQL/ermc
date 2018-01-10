@@ -15,6 +15,8 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Collections;
 using System.Collections.Specialized;
+using Newtonsoft.Json.Linq;
+
 namespace ERManipulator
 {
     public partial class ERManipulatorForm : Form
@@ -378,7 +380,6 @@ namespace ERManipulator
                 AddLog("메타시스템에 접속중입니다.");
 
 
-
                 WebClient connRuleServer = new WebClient();
 
 
@@ -387,9 +388,20 @@ namespace ERManipulator
 
                 param.Add("ID", "");
 
-                string url = @"https://www.nexcore-erc.com/dpump/strdterm/_list/57442ded18768a34ccfab0f7/577f61c618768a59f16bee89";
+                //string url = @"https://www.nexcore-erc.com/dpump/strdterm/_list/5a16cae68f04cf1820ab1666/5a3cfea58f04cf0e90b87901";
+                string url = "";
 
-                        
+                // read JSON directly from a file
+                using (StreamReader file = File.OpenText(@"ermc.conf"))
+                using (JsonTextReader reader = new JsonTextReader(file))
+                {
+                    JObject o2 = (JObject)JToken.ReadFrom(reader);
+                    url = o2["stard_term_url"].ToString();
+                }
+
+                AddLog("메타 시스템 URL : " + url);
+
+                           
 
                 //url = @"http://10.0.2.2:5000/dpump/strdterm/_list/57442ded18768a34ccfab0f7/577f61c618768a59f16bee89";
                 //url = @"http://10.0.2.2:5000/dpump/strdterm/_list/574fd1dc18768a15b3ddce42/577b154418768a6acad9701f";

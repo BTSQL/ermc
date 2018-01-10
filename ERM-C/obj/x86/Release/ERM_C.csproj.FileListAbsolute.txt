@@ -1,0 +1,12 @@
+D:\Dev\vs_src\ermc\ERM-C\bin\x86\Release\ERM_C.dll.config
+D:\Dev\vs_src\ermc\ERM-C\bin\x86\Release\ERM_C.dll
+D:\Dev\vs_src\ermc\ERM-C\bin\x86\Release\Newtonsoft.Json.dll
+D:\Dev\vs_src\ermc\ERM-C\bin\x86\Release\Interop.SCAPI.dll
+D:\Dev\vs_src\ermc\ERM-C\obj\x86\Release\Interop.SCAPI.dll
+D:\Dev\vs_src\ermc\ERM-C\obj\x86\Release\ERM_C.csproj.ResolveComReference.cache
+D:\Dev\vs_src\ermc\ERM-C\obj\x86\Release\ERManipulator.AboutForm.resources
+D:\Dev\vs_src\ermc\ERM-C\obj\x86\Release\ERManipulator.ERManipulatorForm.resources
+D:\Dev\vs_src\ermc\ERM-C\obj\x86\Release\ERM_C.Properties.Resources.resources
+D:\Dev\vs_src\ermc\ERM-C\obj\x86\Release\ERM_C.TestForm1.resources
+D:\Dev\vs_src\ermc\ERM-C\obj\x86\Release\ERM_C.csproj.GenerateResource.Cache
+D:\Dev\vs_src\ermc\ERM-C\obj\x86\Release\ERM_C.dll

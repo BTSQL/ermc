@@ -63,3 +63,12 @@ C:\ERMC_Tango\ERM-C\obj\Debug\ERM_C.dll
 C:\ERMC_Tango\ERM-C\obj\Debug\ERM_C.pdb
 C:\ERMC_Tango\ERM-C\bin\Debug\ERM_C.tlb
 C:\ERMC_Tango\ERM-C\obj\Debug\ERM_C.csprojResolveAssemblyReference.cache
+D:\Dev\vs_src\ermc\ERM-C\obj\Debug\ERM_C.csprojResolveAssemblyReference.cache
+D:\Dev\vs_src\ermc\ERM-C\obj\Debug\ERM_C.csproj.ResolveComReference.cache
+D:\Dev\vs_src\ermc\ERM-C\obj\Debug\ERManipulator.AboutForm.resources
+D:\Dev\vs_src\ermc\ERM-C\obj\Debug\ERManipulator.ERManipulatorForm.resources
+D:\Dev\vs_src\ermc\ERM-C\obj\Debug\ERM_C.Properties.Resources.resources
+D:\Dev\vs_src\ermc\ERM-C\obj\Debug\ERM_C.TestForm1.resources
+D:\Dev\vs_src\ermc\ERM-C\obj\Debug\ERM_C.csproj.GenerateResource.Cache
+D:\Dev\vs_src\ermc\ERM-C\obj\Debug\ERM_C.dll
+D:\Dev\vs_src\ermc\ERM-C\obj\Debug\ERM_C.pdb
