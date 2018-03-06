@@ -53,8 +53,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnStrdTerm = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -126,7 +127,6 @@
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -298,7 +298,7 @@
             this.splitContainer2.Panel1.Controls.Add(this.dataGridView2);
             this.splitContainer2.Panel1.Controls.Add(this.panel6);
             this.splitContainer2.Panel1.Controls.Add(this.panel2);
-            this.splitContainer2.Panel1.Controls.Add(this.button1);
+            this.splitContainer2.Panel1.Controls.Add(this.btnStrdTerm);
             // 
             // splitContainer2.Panel2
             // 
@@ -368,16 +368,16 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnStrdTerm
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(5, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(176, 45);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "표준용어 가져오기";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnStrdTerm.Enabled = false;
+            this.btnStrdTerm.Location = new System.Drawing.Point(5, 6);
+            this.btnStrdTerm.Name = "btnStrdTerm";
+            this.btnStrdTerm.Size = new System.Drawing.Size(176, 45);
+            this.btnStrdTerm.TabIndex = 0;
+            this.btnStrdTerm.Text = "표준용어 가져오기";
+            this.btnStrdTerm.UseVisualStyleBackColor = true;
+            this.btnStrdTerm.Click += new System.EventHandler(this.btnStrdTerm_Click);
             // 
             // groupBox2
             // 
@@ -392,6 +392,18 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "표준 적용 규칙";
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Checked = true;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox3.Location = new System.Drawing.Point(6, 90);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(163, 16);
+            this.checkBox3.TabIndex = 3;
+            this.checkBox3.Text = "Logical Only 속성은 제외";
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -988,18 +1000,6 @@
             this.dataGridViewTextBoxColumn20.HeaderText = "소숫점자릿수";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Checked = true;
-            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(6, 90);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(163, 16);
-            this.checkBox3.TabIndex = 3;
-            this.checkBox3.Text = "Logical Only 속성은 제외";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
             // ERManipulatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1099,7 +1099,7 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnStrdTerm;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox1;

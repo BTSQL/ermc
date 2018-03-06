@@ -15,6 +15,10 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Collections;
 using System.Collections.Specialized;
+using Newtonsoft.Json.Linq;
+using Microsoft.Win32;
+using System.Security.Permissions;
+using ERM_C;
 namespace ERManipulator
 {
     public partial class ERManipulatorForm : Form
@@ -115,11 +119,11 @@ namespace ERManipulator
                     {
                         mToolStripLabelConnectionStatus.Text = "프로젝트 환경이 인식되었습니다.";
                         mToolStripLabelConnectionStatus.BackColor = Color.LimeGreen;
-                        button1.Enabled = true;
+                        btnStrdTerm.Enabled = true;
                     }
                     else
                     {
-                        button1.Enabled = false;
+                        btnStrdTerm.Enabled = false;
                         mToolStripLabelConnectionStatus.Text = "프로젝트 환경이 아닙니다...";
                         mToolStripLabelConnectionStatus.BackColor = Color.Red;
                     }
@@ -127,7 +131,7 @@ namespace ERManipulator
                 }
                 else
                 {
-                    button1.Enabled = true;
+                    btnStrdTerm.Enabled = true;
 
                 }
 
@@ -364,11 +368,9 @@ namespace ERManipulator
         }
 
 
-
-
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnStrdTerm_Click(object sender, EventArgs e)
         {
+            //System.Diagnostics.Debugger.Launch();//프로세스 디버깅
             mv_isStrdTrmReady = false;
             mv_strdterm = new Dictionary<string, StandardTerm>();
             dataGridView2.Rows.Clear();
@@ -376,7 +378,6 @@ namespace ERManipulator
             {
                 Cursor.Current = Cursors.WaitCursor;
                 AddLog("메타시스템에 접속중입니다.");
-
 
 
                 WebClient connRuleServer = new WebClient();
@@ -387,9 +388,25 @@ namespace ERManipulator
 
                 param.Add("ID", "");
 
-                string url = @"https://www.nexcore-erc.com/dpump/strdterm/_list/57442ded18768a34ccfab0f7/577f61c618768a59f16bee89";
+                //string url = @"https://www.nexcore-erc.com/dpump/strdterm/_list/5a16cae68f04cf1820ab1666/5a3cfea58f04cf0e90b87901";
+                string url = "";
 
-                        
+
+                // read JSON directly from a file
+                var regUtil = new RegistryUtil();
+                var path = regUtil.GetDLLDirectoryFromProgID(@"ERM_C.Tango");//프로그램ID로 ERMC 설치 경로를 레지스트리에서 읽어옴
+                var ermc_conf_path = path.Substring(6) + @"\ermc.conf";
+                AddLog("ermc.conf 파일경로 : " + ermc_conf_path);
+                using (StreamReader file = File.OpenText(ermc_conf_path))
+                using (JsonTextReader reader = new JsonTextReader(file))
+                {
+                    JObject o2 = (JObject)JToken.ReadFrom(reader);
+                    url = o2["stard_term_url"].ToString();
+                }
+
+                AddLog("메타 시스템 URL : " + url);
+
+
 
                 //url = @"http://10.0.2.2:5000/dpump/strdterm/_list/57442ded18768a34ccfab0f7/577f61c618768a59f16bee89";
                 //url = @"http://10.0.2.2:5000/dpump/strdterm/_list/574fd1dc18768a15b3ddce42/577b154418768a6acad9701f";
@@ -398,26 +415,26 @@ namespace ERManipulator
                 //url = @"http://erc.skcc.com/dpump/strdterm/_list/57442ded18768a34ccfab0f7/577f61c618768a59f16bee89";
 
                 byte[] response = connRuleServer.UploadValues(url, param);
-                
+
                 string result = Encoding.UTF8.GetString(response);
 
 
-                string jsondata = @"
-                {
-                    '용어명1':{
-                        'term_name':'용어명1',
-                        'physical_term_name':'term1',
-                        'infotype_name':'변동문자1',
-                        'data_type':'varchar2(1)'
-                    },
-                    '회계구분코드':{
-                        'term_name':'회계구분코드',
-                        'physical_term_name':'term2',
-                        'infotype_name':'변동문자10',
-                        'data_type':'varchar2(10)'
-                    }
-                }
-                ";
+//                string jsondata = @"
+//                {
+//                    '용어명1':{
+//                        'term_name':'용어명1',
+//                        'physical_term_name':'term1',
+//                        'infotype_name':'변동문자1',
+//                        'data_type':'varchar2(1)'
+//                    },
+//                    '회계구분코드':{
+//                        'term_name':'회계구분코드',
+//                        'physical_term_name':'term2',
+//                        'infotype_name':'변동문자10',
+//                        'data_type':'varchar2(10)'
+//                    }
+//                }
+//                ";
                 //string result = jsondata;
                 AddLog("표준용어 목록을 만드는 중입니다.");
 
@@ -426,8 +443,8 @@ namespace ERManipulator
                 label3.Text = mv_strdterm.Count + "건의 표준용어를 가져왔습니다.";
 
 
-                
-                
+
+
                 foreach (var item in mv_strdterm)
                 {
                     dataGridView2.Rows.Add(item.Key);
@@ -1815,8 +1832,8 @@ namespace ERManipulator
             }
             finally { }
 
-            int attrSeq = 0;
-            string lastEntityName = "";//걍 일케 하자...대강...
+            //int attrSeq = 0;
+            //string lastEntityName = "";//걍 일케 하자...대강...
 
 
 
